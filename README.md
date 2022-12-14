@@ -1,6 +1,6 @@
-# RoomTime
+# swiftui-textrender
 
-RoomTime is a bundle of tools developed in my app `RoomTime Lite`. (😊 RoomTime Lite is still in development)
+This is my fork of `RainbowTalaxy/RoomTime`
 
 # Features
 
