@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MarkdownUI
 
 public struct Line: View {
     let element: LineElement
@@ -15,6 +16,7 @@ public struct Line: View {
     }
     
     public var body: some View {
-        Text(try! AttributedString(markdown: element.text))
+//        Text(try! AttributedString(markdown: element.text))
+        Markdown(element.text)
     }
 }

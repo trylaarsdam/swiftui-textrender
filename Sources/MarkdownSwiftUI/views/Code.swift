@@ -58,7 +58,7 @@ public struct Code: View {
              if let lang = element.lang {
                  HStack {
                      Text(lang)
-                     // .foregroundColor(Color.black.opacity(0.3))
+                         .foregroundColor(.white)
                          .padding(.vertical, 8)
                          .padding(.horizontal, 12)
                      Button {
@@ -73,15 +73,14 @@ public struct Code: View {
                              }
                          }
                      } label: {
-                         Image(systemName: copyIcon).foregroundColor(.primary)
+                         Image(systemName: copyIcon).foregroundColor(.white)
                      }.padding(.trailing, 12)
-                     
                  }
              }
          }
          // .background(Color(red: 246/256, green: 248/256, blue: 250/256))
          .frame(maxWidth: .infinity)
-         .background(colorScheme == .dark ? Color(red: 40/256, green: 40/256, blue: 40/256) : Color(red: 246/256, green: 248/256, blue: 250/256))
+         .background(Color(red: 40/256, green: 40/256, blue: 40/256))
          .cornerRadius(10)
          .shadow(radius: 1)
      }
