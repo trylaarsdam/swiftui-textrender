@@ -8,6 +8,8 @@
 import SwiftUI
 
 public struct Code: View {
+		@Environment(\.colorScheme) var colorScheme
+
     let element: CodeElement
     
     public init(element: CodeElement) {
@@ -49,7 +51,8 @@ public struct Code: View {
                     .padding(.horizontal, 12)
             }
         }
-        .background(Color(red: 246/256, green: 248/256, blue: 250/256))
+        // .background(Color(red: 246/256, green: 248/256, blue: 250/256))
+				.background(colorScheme == .dark ? Color.darkGray : Color.lightGray)
         .cornerRadius(10)
         .shadow(radius: 1)
     }
