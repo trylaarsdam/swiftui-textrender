@@ -52,7 +52,7 @@ public struct Code: View {
             }
         }
         // .background(Color(red: 246/256, green: 248/256, blue: 250/256))
-				.background(colorScheme == .dark ? Color.darkGray : Color.lightGray)
+				.background(colorScheme == .dark ? Color(red: 10/256, green: 8/256, blue: 6/256) : Color(red: 246/256, green: 248/256, blue: 250/256))
         .cornerRadius(10)
         .shadow(radius: 1)
     }
