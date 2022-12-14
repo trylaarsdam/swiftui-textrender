@@ -40,27 +40,43 @@ public struct Code: View {
         self.element = element
     }
     
+    @State var copyIcon = "doc.on.doc"
     public var body: some View {
         
          ZStack(alignment: .topTrailing) {
              ScrollView(.horizontal) {
-                 ScrollView(.vertical) {
-                     VStack(alignment: .leading, spacing: 5) {
-                         ForEach(element.lines, id: \.self) { line in
-                             AttributedText(SyntaxHighlighter(format: AttributedStringOutputFormat(theme: .wwdc18(withFont: Splash.Font(size: UIFont.preferredFont(forTextStyle: .body).pointSize)))).highlight(line))
-                         }
-                     }.padding()
-                 }
+                 VStack(alignment: .leading, spacing: 5) {
+                     ForEach(element.lines, id: \.self) { line in
+                         AttributedText(SyntaxHighlighter(format: AttributedStringOutputFormat(theme: .wwdc18(withFont: Splash.Font(size: UIFont.preferredFont(forTextStyle: .body).pointSize)))).highlight(line))
+                     }
+                 }.padding()
              }
              .frame(maxWidth: .infinity)
             .padding(.vertical)
             
              // language rect
              if let lang = element.lang {
-                 Text(lang)
+                 HStack {
+                     Text(lang)
                      // .foregroundColor(Color.black.opacity(0.3))
-                     .padding(.vertical, 8)
-                     .padding(.horizontal, 12)
+                         .padding(.vertical, 8)
+                         .padding(.horizontal, 12)
+                     Button {
+                         UIPasteboard.general.string = element.lines.joined(separator: "\n")
+                         
+                         withAnimation {
+                             copyIcon = "checkmark"
+                         }
+                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                             withAnimation {
+                                 copyIcon = "doc.on.doc"
+                             }
+                         }
+                     } label: {
+                         Image(systemName: copyIcon).foregroundColor(.primary)
+                     }.padding(.trailing, 12)
+                     
+                 }
              }
          }
          // .background(Color(red: 246/256, green: 248/256, blue: 250/256))
