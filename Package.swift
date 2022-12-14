@@ -1,10 +1,9 @@
 // swift-tools-version:5.5
 // The swift-tools-version declares the minimum version of Swift required to build this package.
-
 import PackageDescription
 
 let package = Package(
-    name: "textrender",
+    name: "swiftui-textrender",
     platforms: [.iOS(.v15)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
@@ -12,8 +11,8 @@ let package = Package(
             name: "RoomTime",
             targets: ["RoomTime"]),
         .library(
-            name: "Markdown",
-            targets: ["Markdown"])
+            name: "MarkdownSwiftUI",
+            targets: ["MarkdownSwiftUI"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -27,7 +26,7 @@ let package = Package(
             name: "RoomTime",
             dependencies: []),
         .target(
-            name: "Markdown",
+            name: "MarkdownSwiftUI",
             dependencies: ["RoomTime", "Yams"]),
     ]
 )
